@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Flower" >
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+                <xs:element name="soil">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="PODZOLIC|GROUND|SODDY_PODZOLIC"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="origin" type="xs:string"/>
+                <xs:element name="visualParameters">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="stem_color">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:token">
+                                        <xs:pattern value="#[\dA-F]{6}([\dA-F][\dA-F])?"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="leaf_color">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:token">
+                                        <xs:pattern value="#[\dA-F]{6}([\dA-F][\dA-F])?"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="size">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="VERY_SMALL|SMALL|MIDDLE|BIG|VERY_BIG"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="growingTips">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="temperature" type="xs:float"/>
+                            <xs:element name="is_photophilous" type="xs:boolean"/>
+                            <xs:element name="Watering" type="xs:float"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="multiplying">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="BY_LEAVES|BY_CUTTINGS|BY_SEEDS"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
