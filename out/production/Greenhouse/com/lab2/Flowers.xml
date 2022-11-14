@@ -8,12 +8,12 @@
         <visualParameters>
             <stem_color>#FF0000</stem_color>
             <leaf_color>#00FF00</leaf_color>
-            <size>MIDDLE</size>
+            <size>MEDIUM</size>
         </visualParameters>
         <growingTips>
             <temperature>15</temperature>
             <is_photophilous>true</is_photophilous>
-            <Watering>10</Watering>
+            <watering>10</watering>
         </growingTips>
         <multiplying>BY_CUTTINGS</multiplying>
     </Flower>
@@ -30,7 +30,7 @@
         <growingTips>
             <temperature>20</temperature>
             <is_photophilous>true</is_photophilous>
-            <Watering>10</Watering>
+            <watering>10</watering>
         </growingTips>
         <multiplying>BY_SEEDS</multiplying>
     </Flower>

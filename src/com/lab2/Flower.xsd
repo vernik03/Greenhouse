@@ -32,7 +32,7 @@
                             <xs:element name="size">
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">
-                                        <xs:pattern value="VERY_SMALL|SMALL|MIDDLE|BIG|VERY_BIG"/>
+                                        <xs:pattern value="VERY_SMALL|SMALL|MEDIUM|BIG|VERY_BIG"/>
                                     </xs:restriction>
                                 </xs:simpleType>
                             </xs:element>
@@ -44,7 +44,7 @@
                         <xs:sequence>
                             <xs:element name="temperature" type="xs:float"/>
                             <xs:element name="is_photophilous" type="xs:boolean"/>
-                            <xs:element name="Watering" type="xs:float"/>
+                            <xs:element name="watering" type="xs:float"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
