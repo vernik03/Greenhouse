@@ -3,7 +3,7 @@ package com.lab2;
 import java.awt.*;
 import java.security.PublicKey;
 
-public class Flower {
+public class Flower implements Comparable<Flower> {
     public enum SoilEnum {
         PODZOLIC("Podzolic soil"),
         GROUND("Ground soil"),
@@ -67,6 +67,7 @@ public class Flower {
     }
 
     private String name;
+    private Integer id;
     private SoilEnum soil;
     private String origin;
     private VisualParameters visualParameters;
@@ -82,11 +83,12 @@ public class Flower {
         this.multiplying = MultiplyingEnum.BY_LEAVES;
     }
 
-    public Flower(String name, String soil, String origin,
+    public Flower(String name, Integer id, String soil, String origin,
                   String stem_color, String leaf_color, String size,
                   Float temperature, Boolean is_photophilous, Float watering,
                   String multiplying) {
         this.name = name;
+        this.id = id;
         this.soil = SoilEnum.valueOf(soil);
         this.origin = origin;
         this.visualParameters = new VisualParameters(stem_color, leaf_color, SizeEnum.valueOf(size));
@@ -94,9 +96,18 @@ public class Flower {
         this.multiplying = MultiplyingEnum.valueOf(multiplying);
     }
 
+    @Override
+    public int compareTo(Flower o) {
+        return this.getId() - o.getId();
+    }
+
+    public int getId() {return id;}
+
     public void setName(String name) {
         this.name = name;
     }
+
+    public void setId(String id) {this.id = Integer.parseInt(id);}
 
     public void setSoil(String soil) {
         this.soil = SoilEnum.valueOf(soil);
@@ -135,6 +146,7 @@ public class Flower {
     }
 
     public void printClass(){
+        System.out.println("ID: " + id);
         System.out.println("Name: " + name);
         System.out.println("Soil: " + soil.getSoil());
         System.out.println("Origin: " + origin);

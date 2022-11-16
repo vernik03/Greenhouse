@@ -1,10 +1,18 @@
 package com.lab2;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+import javax.xml.validation.Validator;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -19,10 +27,16 @@ public class DOM {
             // The document builder is created
             DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
             // The DOM tree of the document is created from the file
-            Document document = documentBuilder.parse(path);
+            Document document = documentBuilder.parse(path+".xml");
 //            printFromXML(document.getDocumentElement(), name);
             ArrayList<Flower> FlowersArray = parseToClass_FlowersArray(document.getDocumentElement());
+            Collections.sort(FlowersArray);
             printFromArray(FlowersArray);
+            if (validateXMLSchema(path + ".xml", path + ".xsd")) {
+                System.out.println("XML is valid");
+            } else {
+                System.out.println("XML is not valid");
+            }
 
         } catch (ParserConfigurationException ex) {
             ex.printStackTrace(System.out);
@@ -30,6 +44,29 @@ public class DOM {
             ex.printStackTrace(System.out);
         } catch (IOException ex) {
             ex.printStackTrace(System.out);
+        }
+    }
+
+    public static Boolean validateXMLSchema(String xmlPath, String xsdPath) {
+        try {
+            File xml = new File(xmlPath);
+            File xsd = new File(xsdPath);
+
+            if (!xml.exists()) {
+                System.out.println("XML file not found" + xmlPath);
+            }
+
+            if (!xsd.exists()) {
+                System.out.println("XSD file not found" + xsdPath);
+            }
+            SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+            Schema schema = factory.newSchema(new File(xsdPath));
+            Validator validator = schema.newValidator();
+            validator.validate(new StreamSource(new File(xmlPath)));
+            return true;
+        } catch (IOException | SAXException e) {
+            System.out.println("Exception: " + e.getMessage());
+            return false;
         }
     }
 
@@ -60,6 +97,9 @@ public class DOM {
             Node node = nodeList.item(i);
             if (node.getNodeType() != Node.TEXT_NODE) {
                 switch (node.getNodeName()) {
+                    case "flowerID":
+                        flower.setId(node.getChildNodes().item(0).getTextContent());
+                        break;
                     case "name":
                         flower.setName(node.getChildNodes().item(0).getTextContent());
                         break;

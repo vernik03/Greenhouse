@@ -3,6 +3,6 @@ package com.lab2;
 public class Main {
 
     public static void main(String[] args) {
-        DOM dom = new DOM("src/com/lab2/Flowers.xml", "List of flowers:");
+        DOM dom = new DOM("src/com/lab2/Flowers", "List of flowers:");
     }
 }
