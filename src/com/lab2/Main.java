@@ -14,7 +14,8 @@ public class Main {
 
     public static void main(String[] args) {
 //        DOM dom = new DOM("src/com/lab2/Flowers", "List of flowers:");
-        SAX sax = new SAX("src/com/lab2/Flowers", "List of flowers:");
+       // SAX sax = new SAX("src/com/lab2/Flowers", "List of flowers:");
+        StAX stax = new StAX("src/com/lab2/Flowers", "List of flowers:");
         printIsValidate("src/com/lab2/Flowers");
 
     }
