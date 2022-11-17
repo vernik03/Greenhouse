@@ -75,6 +75,7 @@ public class Flower implements Comparable<Flower> {
     private MultiplyingEnum multiplying;
 
     public Flower(){
+        this.id = 0;
         this.name = "No name";
         this.soil = SoilEnum.PODZOLIC;
         this.origin = "No origin";
