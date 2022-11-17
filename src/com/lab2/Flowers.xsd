@@ -1,60 +1,66 @@
 <?xml version="1.1" encoding="UTF-8" ?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <xsd:element name="Flower">
+    <xsd:element name="Flowers">
         <xsd:complexType>
             <xsd:sequence>
-               <xsd:attribute name="flowerID" type="xsd:ID"/>
-               <xsd:attribute name="name" type="xsd:NCName"/>
-               <xsd:element name="soil">
-                    <xsd:simpleType>
-                        <xsd:restriction base="xsd:string">
-                            <xsd:pattern value="PODZOLIC|GROUND|SODDY_PODZOLIC"/>
-                        </xsd:restriction>
-                    </xsd:simpleType>
-                </xsd:element>
-                <xsd:attribute name="origin" type="xsd:string"/>
-                <xsd:element name="visualParameters">
+                <xsd:element name="Flower">
                     <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="stem_color">
-                                <xsd:simpleType>
-                                    <xsd:restriction base="xsd:token">
-                                        <xsd:pattern value="#[\dA-F]{6}([\dA-F][\dA-F])?"/>
-                                    </xsd:restriction>
-                                </xsd:simpleType>
-                            </xsd:element>
-                            <xsd:element name="leaf_color">
-                                <xsd:simpleType>
-                                    <xsd:restriction base="xsd:token">
-                                        <xsd:pattern value="#[\dA-F]{6}([\dA-F][\dA-F])?"/>
-                                    </xsd:restriction>
-                                </xsd:simpleType>
-                            </xsd:element>
-                            <xsd:element name="size">
+                       <xsd:sequence>
+                           <xsd:element name="visualParameters">
+                                <xsd:complexType>
+                                    <xsd:simpleContent>
+                                        <xsd:extension base="xsd:string">
+                                            <xsd:attribute name="stem_color" >
+                                                <xsd:simpleType>
+                                                    <xsd:restriction base="xsd:token">
+                                                        <xsd:pattern value="#[\dA-F]{6}([\dA-F][\dA-F])?"/>
+                                                    </xsd:restriction>
+                                                </xsd:simpleType>
+                                            </xsd:attribute>
+                                            <xsd:attribute name="leaf_color">
+                                                <xsd:simpleType>
+                                                    <xsd:restriction base="xsd:token">
+                                                        <xsd:pattern value="#[\dA-F]{6}([\dA-F][\dA-F])?"/>
+                                                    </xsd:restriction>
+                                                </xsd:simpleType>
+                                            </xsd:attribute>
+                                            <xsd:attribute name="size">
+                                                <xsd:simpleType>
+                                                    <xsd:restriction base="xsd:string">
+                                                        <xsd:pattern value="VERY_SMALL|SMALL|MEDIUM|BIG|VERY_BIG"/>
+                                                    </xsd:restriction>
+                                                </xsd:simpleType>
+                                            </xsd:attribute>
+                                        </xsd:extension>
+                                    </xsd:simpleContent>
+                                </xsd:complexType>
+                           </xsd:element>
+                           <xsd:element name="growingTips">
+                                <xsd:complexType>
+                                    <xsd:attribute name="temperature" type="xsd:float"/>
+                                    <xsd:attribute name="is_photophilous" type="xsd:boolean"/>
+                                    <xsd:attribute name="watering" type="xsd:float"/>
+                                </xsd:complexType>
+                           </xsd:element>
+                           <xsd:element name="multiplying">
                                 <xsd:simpleType>
                                     <xsd:restriction base="xsd:string">
-                                        <xsd:pattern value="VERY_SMALL|SMALL|MEDIUM|BIG|VERY_BIG"/>
+                                        <xsd:pattern value="BY_LEAVES|BY_CUTTINGS|BY_SEEDS"/>
                                     </xsd:restriction>
                                 </xsd:simpleType>
                             </xsd:element>
-                        </xsd:sequence>
+                       </xsd:sequence>
+                        <xsd:attribute name="flowerID" type="xsd:ID"/>
+                        <xsd:attribute name="name" type="xsd:NCName"/>
+                        <xsd:attribute name="soil">
+                            <xsd:simpleType>
+                                <xsd:restriction base="xsd:string">
+                                    <xsd:pattern value="PODZOLIC|GROUND|SODDY_PODZOLIC"/>
+                                </xsd:restriction>
+                            </xsd:simpleType>
+                        </xsd:attribute>
+                        <xsd:attribute name="origin" type="xsd:string"/>
                     </xsd:complexType>
-                </xsd:element>
-                <xsd:element name="growingTips">
-                    <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="temperature" type="xsd:float"/>
-                            <xsd:element name="is_photophilous" type="xsd:boolean"/>
-                            <xsd:element name="watering" type="xsd:float"/>
-                        </xsd:sequence>
-                    </xsd:complexType>
-                </xsd:element>
-                <xsd:element name="multiplying">
-                    <xsd:simpleType>
-                        <xsd:restriction base="xsd:string">
-                            <xsd:pattern value="BY_LEAVES|BY_CUTTINGS|BY_SEEDS"/>
-                        </xsd:restriction>
-                    </xsd:simpleType>
                 </xsd:element>
             </xsd:sequence>
         </xsd:complexType>

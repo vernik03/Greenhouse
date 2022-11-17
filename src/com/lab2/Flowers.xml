@@ -1,11 +1,7 @@
 <?xml version="1.0"?>
 <Flowers>
     <Flower xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xsi:noNamespaceSchemaLocation="Flowers.xsd">
-        <name>Tulip</name>
-        <flowerID>2</flowerID>
-        <soil>PODZOLIC</soil>
-        <origin>Netherlands</origin>
+            xsi:noNamespaceSchemaLocation="Flowers.xsd">
         <visualParameters>
             <stem_color>#FFFF00</stem_color>
             <leaf_color>#00FF00</leaf_color>
@@ -17,13 +13,13 @@
             <watering>10</watering>
         </growingTips>
         <multiplying>BY_SEEDS</multiplying>
+        <flowerID>2</flowerID>
+        <name>Tulip</name>
+        <soil>PODZOLIC</soil>
+        <origin>Netherlands</origin>
     </Flower>
     <Flower xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:noNamespaceSchemaLocation="Flowers.xsd">
-        <name>Roze</name>
-        <flowerID>1</flowerID>
-        <soil>GROUND</soil>
-        <origin>Ukraine</origin>
         <visualParameters>
             <stem_color>#FF0000</stem_color>
             <leaf_color>#00FF00</leaf_color>
@@ -35,5 +31,9 @@
             <watering>10</watering>
         </growingTips>
         <multiplying>BY_CUTTINGS</multiplying>
+        <flowerID>1</flowerID>
+        <name>Roze</name>
+        <soil>GROUND</soil>
+        <origin>Ukraine</origin>
     </Flower>
 </Flowers>
